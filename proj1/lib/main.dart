@@ -1,20 +1,53 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() { 
+ runApp(MyApp());
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: Text('Hello World'),
-        ),
-      ),
-    );
+  MyAppState createState(){
+    return MyAppState();
   }
 }
+
+ class MyAppState extends State<MyApp> {
+
+  int count = 0;
+
+  void increment() {
+    setState(() {
+      count =count + 1;
+    });
+   
+ }
+
+ @override
+ Widget build(BuildContext Context) {
+
+  return MaterialApp(
+    home: Scaffold(
+      floatingActionButton: FloatingActionButton(
+
+       onPressed: increment,
+       child: Icon(Icons.plus_one),
+       ), // FloatingActionButton
+           
+      appBar: new AppBar(
+        title: new Text("Increment Counter"),
+      ), //AppBar
+
+      body: new Center(
+        child: new Text(
+          "count = " + count.toString(),
+          style: new TextStyle(fontSize: 30.0),
+          ),
+        ),
+
+
+      ),
+    );
+   }
+ 
+  }
+ 
