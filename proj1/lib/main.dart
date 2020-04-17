@@ -1,53 +1,32 @@
 import 'package:flutter/material.dart';
 
-void main() { 
- runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   @override
-  MyAppState createState(){
-    return MyAppState();
-  }
-}
-
- class MyAppState extends State<MyApp> {
-
-  int count = 0;
-
-  void increment() {
-    setState(() {
-      count =count + 1;
-    });
-   
- }
-
- @override
- Widget build(BuildContext Context) {
-
-  return MaterialApp(
-    home: Scaffold(
-      floatingActionButton: FloatingActionButton(
-
-       onPressed: increment,
-       child: Icon(Icons.plus_one),
-       ), // FloatingActionButton
-           
-      appBar: new AppBar(
-        title: new Text("Increment Counter"),
-      ), //AppBar
-
-      body: new Center(
-        child: new Text(
-          "count = " + count.toString(),
-          style: new TextStyle(fontSize: 30.0),
-          ),
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: new ThemeData(primaryColor: Colors.purple,
+        buttonColor: Colors.pink,
+        textTheme: TextTheme(body1: TextStyle(color: Colors.yellow))),
+      
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Welcome to my APP',
+          style: TextStyle(fontStyle: FontStyle.italic),
+            ),
+      
         ),
+        body: new Center(
+          child: new RaisedButton(
+            onPressed: () {},
+            child: new Text("Hello Viewers"),
 
 
+            ),  
+        ),
       ),
     );
-   }
- 
   }
- 
+}
