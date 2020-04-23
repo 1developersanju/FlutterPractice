@@ -19,6 +19,8 @@ class _State extends State<LoginScreen> {
     
     
     return Scaffold(
+       appBar: AppBar(title: Text('Welcome to my APP'),
+            backgroundColor: Color(0xFFE91E63)),
       key:scaffoldKey,
       body: new Container(
       width: double.infinity, 
@@ -139,7 +141,7 @@ child: new ListView (
                   scaffoldKey.currentState.showSnackBar(SnackBar(
                     content: Text("Form Validated Successfully"),
                     ));
-                  Navigator.push(context, MaterialPageRoute(
+                  Navigator.pushReplacement(context, MaterialPageRoute(
                     builder: (context) => FirstPage()));
                       
                 }else{
@@ -194,6 +196,8 @@ child: new ListView (
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Welcome to my APP'),
+            backgroundColor: Color(0xFFFF1744)),
       body: Center(
         child: Text("Welcome to ViralVirus Media"),
         ),
