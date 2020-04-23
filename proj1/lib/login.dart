@@ -11,105 +11,111 @@ class _State extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
  
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)     {
+    
+    
     return Scaffold(
+      body: new Container(
+      width: double.infinity, 
+       
+      decoration: BoxDecoration(
 
-        appBar: AppBar(
-          title: Text('My App'),
-        ),
-        body: Padding(
-            padding: EdgeInsets.all(10),
-            child: ListView(
-              children: <Widget>[
-                Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Viral Prime',
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30),
-                    )),
-                Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Sign in',
-                      style: TextStyle(fontSize: 20),
-                    )),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'User Name',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),
-                FlatButton(
-                  onPressed: (){
-                    //forgot password screen
-                  },
-                  textColor: Colors.blue,
-                  child: Text('Forgot Password'),
-                ),
-                Container(
-                  height: 50,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
-                      child: Text('Login'),
-                      onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
-                      },
-                    )),
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      Text('Do you want to create a new account?'),
-                      FlatButton(
-                        textColor: Colors.blue,
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        onPressed: () {
-                          //signup screen
-                          _navigateToSignUpScreen(context);
-                        },
-                      )
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                ),
-                  ),
 
-              ],
+         gradient: LinearGradient(
+         
+           begin: Alignment.topLeft,
+           end: Alignment.bottomRight,
+           stops: [
+           0.1,0.4,0.7,0.9
+            ],
+
+
+           colors:[
+           Colors.purple[600],
+           Colors.purple[500],
+           Colors.purple[300],
+           Colors.purple[200],
+
+           
+],
+),
+         ),//LinearGradient
+
+        
+child: Center(
+child: new Column(
+
+  children: <Widget>[
+    
+    Image.asset("assets/my_logo.jpeg",
+      height: 350,
+      ),//Image.asset
+      
+    
+          
+         TextFormField(
+          decoration: InputDecoration(
+               icon:Icon(Icons.account_circle,color: Colors.white),
+               hintText: "Username",
+               hintStyle: TextStyle(color: Colors.white70),
+           ), 
+
             ),
-            ),
-        );
+               SizedBox(
+                height: 30.0,
+                ),  
+           
+         TextFormField(
+          decoration: InputDecoration(
+               icon:Icon(Icons.lock,color: Colors.white),
+               hintText: "Password",
+               hintStyle: TextStyle(color: Colors.white70),
+           ),
+          ),
+          SizedBox(
+                height: 50.0,
+                ),  
+           Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                stops: [0.1,0.4,0.7,0.9],
+                colors: [
+                Colors.purple[700],
+                Colors.purple[500],
+                Colors.purple[500],
+                Colors.purple[600],
+                ],
+                ),//LinearGradient
+              ),//BoxDecoration 
+            child: ButtonTheme(
+              buttonColor: Colors.white10,  
+              height: 50.0,
+              minWidth: double.infinity,
+              child: RaisedButton(  
+              onPressed: (){},
+              child: Text(
+                "LOGIN",
+                style: TextStyle(color: Colors.white),
+                ), //Text  
+                ),//RaisedButton
+              ),//ButtonTheme
 
-       }
+            ),//Container
+          
+         ],//Widget
 
-    void _navigateToSignUpScreen(BuildContext context) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => SignUpScreen(),
-          ));
-    }
- }
+
+ ),//Column
+),//Center
+  
+
+                
+          
+)); //Container //Scaffold
+  }
+}
+
+ 
+  
