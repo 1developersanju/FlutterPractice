@@ -64,7 +64,9 @@ child: new ListView (
           validator:(value){
             if (value.isEmpty){
               return"Please enter the user name";
-            };
+            }else if(value.length>8){
+              return "Username should not exceed 8 characters!";
+            }
 
             },
           decoration: InputDecoration(
