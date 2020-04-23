@@ -4,12 +4,14 @@ import 'signup.dart';
 class LoginScreen extends StatefulWidget {
   @override
   _State createState() => _State();
+
 }
  
 class _State extends State<LoginScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
- 
+ final formKey=GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context)     {
     
@@ -31,10 +33,10 @@ class _State extends State<LoginScreen> {
 
 
            colors:[
-           Colors.purple[600],
-           Colors.purple[500],
-           Colors.purple[300],
-           Colors.purple[200],
+           Colors.pink[600],
+           Colors.pink[500],
+           Colors.pink[300],
+           Colors.pink[200],
 
            
 ],
@@ -43,17 +45,28 @@ class _State extends State<LoginScreen> {
 
         
 child: Center(
-child: new Column(
+child: new ListView (
 
   children: <Widget>[
     
     Image.asset("assets/my_logo.jpeg",
       height: 350,
       ),//Image.asset
+    SizedBox(
+                height: 20.0,
+                ),  
       
-    
-          
+    Form(
+      key: formKey,
+      child:  Column(
+        children: <Widget>[
          TextFormField(
+          validator:(value){
+            if (value.isEmpty){
+              return"Please enter the user name";
+            };
+
+            },
           decoration: InputDecoration(
                icon:Icon(Icons.account_circle,color: Colors.white),
                hintText: "Username",
@@ -62,19 +75,40 @@ child: new Column(
 
             ),
                SizedBox(
-                height: 30.0,
+                height: 20.0,
                 ),  
            
          TextFormField(
+          validator: (value){
+            if (value.isEmpty){
+              return"Please enter the user Password";
+            }
+          },            
+
+            
           decoration: InputDecoration(
                icon:Icon(Icons.lock,color: Colors.white),
                hintText: "Password",
                hintStyle: TextStyle(color: Colors.white70),
            ),
           ),
+        ],//<Widget>[]
+        ),//column
+      ),//Form
+          
+        
           SizedBox(
-                height: 50.0,
-                ),  
+                height: 10.0,
+                ), 
+                FlatButton(
+  onPressed: () {
+    /*...*/
+  },
+  child: Text(
+    "Forget Password ?",
+  ),
+),
+           
            Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -82,10 +116,10 @@ child: new Column(
                 end: Alignment.bottomLeft,
                 stops: [0.1,0.4,0.7,0.9],
                 colors: [
-                Colors.purple[700],
-                Colors.purple[500],
-                Colors.purple[500],
-                Colors.purple[600],
+                Colors.pink[400],
+                Colors.pink[500],
+                Colors.pink[500],
+                Colors.pink[400],
                 ],
                 ),//LinearGradient
               ),//BoxDecoration 
@@ -94,7 +128,18 @@ child: new Column(
               height: 50.0,
               minWidth: double.infinity,
               child: RaisedButton(  
-              onPressed: (){},
+              onPressed: (){
+                if(formKey.currentState.validate()){
+                  Scaffold.of(context).showSnackBar(SnackBar(
+                    content: Text("Form Validated Successfully"),
+                    ));
+                }else{
+                   Scaffold.of(context).showSnackBar(SnackBar(
+                    content: Text("Error in Form"),
+                    ));
+
+                }
+                },
               child: Text(
                 "LOGIN",
                 style: TextStyle(color: Colors.white),
@@ -103,11 +148,32 @@ child: new Column(
               ),//ButtonTheme
 
             ),//Container
-          
+            SizedBox(
+                height: 10.0,
+                ),  
+            
+            Text('Do you want to create a new account?',
+              textAlign: TextAlign.center,),
+                      FlatButton(
+                        textColor: Colors.blue,
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onPressed: () {
+                          //signup screen
+                           
+                        },
+
+                      ),
+
+                     
+
          ],//Widget
 
 
- ),//Column
+
+ ),// new Column
 ),//Center
   
 
