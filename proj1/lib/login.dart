@@ -11,12 +11,15 @@ class _State extends State<LoginScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
  final formKey=GlobalKey<FormState>();
+ final scaffoldKey=GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context)     {
     
     
     return Scaffold(
+      key:scaffoldKey,
       body: new Container(
       width: double.infinity, 
        
@@ -81,6 +84,7 @@ child: new ListView (
                 ),  
            
          TextFormField(
+          obscureText: true,
           validator: (value){
             if (value.isEmpty){
               return"Please enter the user Password";
@@ -132,11 +136,14 @@ child: new ListView (
               child: RaisedButton(  
               onPressed: (){
                 if(formKey.currentState.validate()){
-                  Scaffold.of(context).showSnackBar(SnackBar(
+                  scaffoldKey.currentState.showSnackBar(SnackBar(
                     content: Text("Form Validated Successfully"),
                     ));
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => FirstPage()));
+                      
                 }else{
-                   Scaffold.of(context).showSnackBar(SnackBar(
+                   scaffoldKey.currentState.showSnackBar(SnackBar(
                     content: Text("Error in Form"),
                     ));
 
@@ -179,11 +186,20 @@ child: new ListView (
 ),//Center
   
 
-                
-          
-)); //Container //Scaffold
+      )); //Container //Scaffold
   }
 }
-
  
-  
+ class FirstPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text("Welcome to ViralVirus Media"),
+        ),
+      );
+   
+ }
+ 
+ 
+    }
