@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'signup.dart';
+import 'firstpage.dart';
+import 'password.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -19,7 +21,7 @@ class _State extends State<LoginScreen> {
     
     
     return Scaffold(
-       appBar: AppBar(title: Text('Welcome to my APP'),
+       appBar: AppBar(title: Text('Always Welcomed'),
             backgroundColor: Color(0xFFE91E63)),
       key:scaffoldKey,
       body: new Container(
@@ -38,10 +40,10 @@ class _State extends State<LoginScreen> {
 
 
            colors:[
-           Colors.pink[600],
-           Colors.pink[500],
-           Colors.pink[300],
-           Colors.pink[200],
+           Colors.blue[600],
+           Colors.red[500],
+           Colors.green[300],
+           Colors.blue[200],
 
            
 ],
@@ -110,7 +112,8 @@ child: new ListView (
                 ), 
                 FlatButton(
   onPressed: () {
-    /*...*/
+    Navigator.pushReplacement(context,MaterialPageRoute(
+                    builder: (context) => Password()));
   },
   child: Text(
     "Forget Password ?",
@@ -173,6 +176,9 @@ child: new ListView (
                         ),
                         onPressed: () {
                           //signup screen
+                          Navigator.pushReplacement(context,MaterialPageRoute(
+                    builder: (context) => SignUpScreen()));
+
                            
                         },
 
@@ -192,18 +198,3 @@ child: new ListView (
   }
 }
  
- class FirstPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Welcome to my APP'),
-            backgroundColor: Color(0xFFFF1744)),
-      body: Center(
-        child: Text("Welcome to ViralVirus Media"),
-        ),
-      );
-   
- }
- 
- 
-    }

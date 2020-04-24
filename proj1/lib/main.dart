@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
-
+import 'signup.dart';
     void main() {
       runApp(MaterialApp(
         title: 'Flutter',
@@ -12,7 +12,7 @@ import 'login.dart';
       Widget build(BuildContext context) {
         return Scaffold(
         
-          appBar: AppBar(title: Text('Welcome to my APP'),
+          appBar: AppBar(title: Text('Petromax Prime'),
             backgroundColor: Color(0xFFFF1744)),
           body: Center(
             child: RaisedButton(

@@ -1,129 +1,200 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
-
+import 'firstpage.dart';
 class SignUpScreen extends StatefulWidget {
   @override
   _State createState() => _State();
+
 }
  
 class _State extends State<SignUpScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
- 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+ final formKey=GlobalKey<FormState>();
+ final scaffoldKey=GlobalKey<ScaffoldState>();
 
-        appBar: AppBar(
-          title: Text('My App'),
-        ),
-        body: Padding(
-            padding: EdgeInsets.all(10),
-            child: ListView(
-              children: <Widget>[
-                Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Viral Prime',
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30),
-                    )),
-                Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(fontSize: 20),
-                    )),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Email',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Username',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Mobile #',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Confirm Password',
-                    ),
-                  ),
-                ),Container(
-                  color: Colors.white,
-                  child: (Row(
-                    children: <Widget>[
-                      // ...
-                      Expanded(
-                        child: Column(
-                          children: <Widget>[
-                            Text("Sign Up Today!"),
-                            Text("Get Attractive Offers"),
-                            Divider(
-                              color: Colors.black
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  )),
-                ),
-                Container(
-                  height: 50,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
-                      child: Text('Login'),
-                      onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
-                      },
-                    )),
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      Text('Already have an account?'),
+
+  @override
+  Widget build(BuildContext context)     {
+    
+    
+    return Scaffold(
+       appBar: AppBar(title: Text('Entertine,Engage and Enjoy'),
+            backgroundColor: Color(0xFFE91E63)),
+      key:scaffoldKey,
+      body: new Container(
+      width: double.infinity, 
+       
+      decoration: BoxDecoration(
+
+
+         gradient: LinearGradient(
+         
+           begin: Alignment.topLeft,
+           end: Alignment.bottomRight,
+           stops: [
+           0.1,0.4,0.7,0.9
+            ],
+
+
+           colors:[
+           Colors.blue[600],
+           Colors.red[500],
+           Colors.pink[300],
+           Colors.blue[200],
+
+           
+],
+),
+         ),//LinearGradient
+
+        
+child: Center(
+child: new ListView (
+
+  children: <Widget>[
+    
+    
+    SizedBox(
+                height: 20.0,
+                ),  
+      
+    Form(
+      key: formKey,
+      child:  Column(
+        children: <Widget>[
+         TextFormField(
+          validator:(value){
+            if (value.isEmpty){
+              return"Please enter the user name";
+            }else if(value.length>8){
+              return "Username should not exceed 8 characters!";
+            }
+
+            },
+          decoration: InputDecoration(
+               icon:Icon(Icons.account_circle,color: Colors.white),
+               hintText: "Username",
+               hintStyle: TextStyle(color: Colors.white70),
+           ), 
+
+            ),
+               SizedBox(
+                height: 20.0,
+                ),  
+           
+         TextFormField(
+           
+          obscureText: true,
+          validator: (value){
+            if (value.isEmpty){
+              return"Please enter your Email id";
+            }
+          },          
+
+            
+          decoration: InputDecoration(
+               icon:Icon(Icons.contact_mail,color: Colors.white),
+               hintText: "Email id",
+               hintStyle: TextStyle(color: Colors.white70),
+           ),
+          ),
+         SizedBox(
+                height: 20.0,
+                ),  
+         TextFormField(
+          obscureText: true,
+          validator: (value){
+            if (value.isEmpty){
+              return"Please enter the user Password";
+            }
+          },            
+
+            
+          decoration: InputDecoration(
+               icon:Icon(Icons.lock,color: Colors.white),
+               hintText: "Password",
+               hintStyle: TextStyle(color: Colors.white70),
+           ),
+          ),
+         SizedBox(
+                height: 20.0,
+                ),  
+                  TextFormField(
+          obscureText: true,
+          validator: (value){
+            if (value.isEmpty){
+              return"Please confirm the Password";
+            }
+          },            
+
+            
+          decoration: InputDecoration(
+               icon:Icon(Icons.lock,color: Colors.white),
+               hintText: "Confirm Password",
+               hintStyle: TextStyle(color: Colors.white70),
+           ),
+          ),
+
+
+        ],//<Widget>[]
+        ),//column
+      ),//Form
+          
+        
+          SizedBox(
+                height: 10.0,
+                ), 
+                
+           
+           Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                stops: [0.1,0.4,0.7,0.9],
+                colors: [
+                Colors.pink[800],
+                Colors.pink[500],
+                Colors.pink[500],
+                Colors.pink[800]
+                ],
+                ),//LinearGradient
+              ),//BoxDecoration 
+            child: ButtonTheme(
+              buttonColor: Colors.white10,  
+              height: 50.0,
+              minWidth: double.infinity,
+              child: RaisedButton(  
+              onPressed: (){
+                if(formKey.currentState.validate()){
+                  scaffoldKey.currentState.showSnackBar(SnackBar(
+                    content: Text("Form Validated Successfully"),
+                    ));
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) => FirstPage()));
+                      
+                }else{
+                   scaffoldKey.currentState.showSnackBar(SnackBar(
+                    content: Text("Error in Form"),
+                    ));
+
+                }
+                },
+              child: Text(
+                "LOGIN",
+                style: TextStyle(color: Colors.white),
+                ), //Text  
+                ),//RaisedButton
+              ),//ButtonTheme
+
+            ),//Container
+            SizedBox(
+                height: 10.0,
+                ),  
+            
+            Text('Alrady have an account?',
+              textAlign: TextAlign.center,),
                       FlatButton(
                         textColor: Colors.blue,
                         child: Text(
@@ -131,28 +202,25 @@ class _State extends State<SignUpScreen> {
                           style: TextStyle(fontSize: 20),
                         ),
                         onPressed: () {
-                          //login screen
-                          _navigateToLoginScreen(context);
+                          //signup screen
+                          Navigator.pushReplacement(context,MaterialPageRoute(
+                    builder: (context) => LoginScreen()));
+
+                           
                         },
-                      )
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                ),
-                  ),
 
-              ],
-            ),
-            ),
-        );
+                      ),
 
-       }
+                     
 
-      void _navigateToLoginScreen(BuildContext context) {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => LoginScreen(),
-            ));
-      }
+         ],//Widget
 
+
+
+ ),// new Column
+),//Center
+  
+
+      )); //Container //Scaffold
   }
+}
