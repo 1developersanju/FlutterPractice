@@ -85,7 +85,7 @@ child: new ListView (
            
          TextFormField(
            
-          obscureText: true,
+        
           validator: (value){
             if (value.isEmpty){
               return"Please enter your Email id";

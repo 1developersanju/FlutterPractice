@@ -158,7 +158,7 @@ child: new ListView (
                 "LOGIN",
                 style: TextStyle(color: Colors.white),
                 ), //Text  
-                ),//RaisedButton
+                ),//RaisedButt
               ),//ButtonTheme
 
             ),//Container
