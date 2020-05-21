@@ -21,7 +21,7 @@ class _State extends State<LoginScreen> {
     
     
     return Scaffold(
-       appBar: AppBar(title: Text('Always Welcomed'),
+       appBar: AppBar(title: Text('A warm welcome'),
             backgroundColor: Color(0xFFE91E63)),
       key:scaffoldKey,
       body: new Container(
@@ -40,10 +40,10 @@ class _State extends State<LoginScreen> {
 
 
            colors:[
-           Colors.blue[600],
-           Colors.red[500],
-           Colors.green[300],
-           Colors.blue[200],
+           Colors.orange[600],
+           Colors.orange[500],
+           Colors.orange[300],
+           Colors.orange[200],
 
            
 ],
@@ -56,8 +56,8 @@ child: new ListView (
 
   children: <Widget>[
     
-    Image.asset("assets/my_logo.jpeg",
-      height: 350,
+    Image.asset("assets/splash.png",
+      height: 250,
       ),//Image.asset
     SizedBox(
                 height: 20.0,
@@ -68,14 +68,14 @@ child: new ListView (
       child:  Column(
         children: <Widget>[
          TextFormField(
-          validator:(value){
-            if (value.isEmpty){
-              return"Please enter the user name";
-            }else if(value.length>8){
-              return "Username should not exceed 8 characters!";
-            }
+          // validator:(value){
+          //   if (value.isEmpty){
+          //     return"Please enter the user name";
+          //   }else if(value.length>8){
+          //     return "Username should not exceed 8 characters!";
+          //   }
 
-            },
+          //   },
           decoration: InputDecoration(
                icon:Icon(Icons.account_circle,color: Colors.white),
                hintText: "Username",
@@ -88,12 +88,12 @@ child: new ListView (
                 ),  
            
          TextFormField(
-          obscureText: true,
-          validator: (value){
-            if (value.isEmpty){
-              return"Please enter the user Password";
-            }
-          },            
+          // obscureText: true,
+          // validator: (value){
+          //   if (value.isEmpty){
+          //     return"Please enter the user Password";
+          //   }
+          // },            
 
             
           decoration: InputDecoration(
@@ -127,10 +127,10 @@ child: new ListView (
                 end: Alignment.bottomLeft,
                 stops: [0.1,0.4,0.7,0.9],
                 colors: [
-                Colors.pink[400],
-                Colors.pink[500],
-                Colors.pink[500],
-                Colors.pink[400],
+                Colors.orange[400],
+                Colors.orange[500],
+                Colors.orange[500],
+                Colors.orange[400],
                 ],
                 ),//LinearGradient
               ),//BoxDecoration 
@@ -147,12 +147,13 @@ child: new ListView (
                   Navigator.pushReplacement(context, MaterialPageRoute(
                     builder: (context) => FirstPage()));
                       
-                }else{
-                   scaffoldKey.currentState.showSnackBar(SnackBar(
-                    content: Text("Error in Form"),
-                    ));
+                 }
+                 // else{
+                //    scaffoldKey.currentState.showSnackBar(SnackBar(
+                //     content: Text("Error in Form"),
+                //     ));
 
-                }
+                // }
                 },
               child: Text(
                 "LOGIN",

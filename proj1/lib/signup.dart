@@ -64,14 +64,14 @@ child: new ListView (
       child:  Column(
         children: <Widget>[
          TextFormField(
-          validator:(value){
-            if (value.isEmpty){
-              return"Please enter the user name";
-            }else if(value.length>8){
-              return "Username should not exceed 8 characters!";
-            }
+          // validator:(value){
+          //   if (value.isEmpty){
+          //     return"Please enter the user name";
+          //   }else if(value.length>8){
+          //     return "Username should not exceed 8 characters!";
+          //   }
 
-            },
+          //   },
           decoration: InputDecoration(
                icon:Icon(Icons.account_circle,color: Colors.white),
                hintText: "Username",
@@ -86,11 +86,11 @@ child: new ListView (
          TextFormField(
            
         
-          validator: (value){
-            if (value.isEmpty){
-              return"Please enter your Email id";
-            }
-          },          
+          // validator: (value){
+          //   if (value.isEmpty){
+          //     return"Please enter your Email id";
+          //   }
+          // },          
 
             
           decoration: InputDecoration(
@@ -104,11 +104,11 @@ child: new ListView (
                 ),  
          TextFormField(
           obscureText: true,
-          validator: (value){
-            if (value.isEmpty){
-              return"Please enter the user Password";
-            }
-          },            
+          // validator: (value){
+          //   if (value.isEmpty){
+          //     return"Please enter the user Password";
+          //   }
+          // },            
 
             
           decoration: InputDecoration(
@@ -122,11 +122,11 @@ child: new ListView (
                 ),  
                   TextFormField(
           obscureText: true,
-          validator: (value){
-            if (value.isEmpty){
-              return"Please confirm the Password";
-            }
-          },            
+          // validator: (value){
+          //   if (value.isEmpty){
+          //     return"Please confirm the Password";
+          //   }
+          // },            
 
             
           decoration: InputDecoration(
