@@ -1,42 +1,13 @@
-void main(){
-  int x = 16;
-  String name = "Sanjeev ";
-  
-  bool student = true;
-  var male = true;
-  bool birthday = true;
-  
-  if(birthday == false){
-    print("Happy birthday to you");
-  }else{
-    print("Your birthday is not today");
-  }
-   int y = 42;
-  const name2 = "Vivekanandan";
-    
-  print(name );
-  print(x);
-  print(name2);
-  print(y);
-  print(name + name2);
-print(x + y);  
-print(y - x); 
-  print("Sanjeev $name2 says hai");
-  
-  int number = 6;
-  
-  if(number != 4){
-    print("not equal to 4");
-  }
+/*void main(){
+ print(add(2,3) + 4);
+}*/
 
-   int number = 5;
-  if(number >= 4){
-    print("bigger or equal to 4");
-  }else if(number >= 6){
-    print("bigger or equal to 6");
-  }else{
-    print("nothing");
-  }
-  
+void main() => print(add(2,3) + 4); 
+
+/*int add(int x, int y){
+  return x + y;
+}*/
+
+int add(int x, int y) => x + y;
+
 }
-
