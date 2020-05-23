@@ -28,6 +28,15 @@ print(y - x);
   if(number != 4){
     print("not equal to 4");
   }
+
+   int number = 5;
+  if(number >= 4){
+    print("bigger or equal to 4");
+  }else if(number >= 6){
+    print("bigger or equal to 6");
+  }else{
+    print("nothing");
+  }
   
 }
 
